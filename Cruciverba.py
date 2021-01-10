@@ -1,4 +1,5 @@
 import numpy as np
+from pprint import pprint
 
 def continueSearching(table, x, y, search, toFind, xDir, yDir):
     global foundWords
@@ -73,7 +74,7 @@ class color:
 
 table = []
 
-# PER INSERIRE LA TABELLA
+#   TO INSERT OWN TABLE, DECOMMENT IF NEEDED
 # while True:
 #     nRow = 1
 #     riga = input('riga: ')
@@ -90,6 +91,7 @@ table = []
 #         # print(table)
 # print(table)
 
+#   TABLE EXAMPLE 1
 # table = [
 #     ['a','s','p','r','a','a'],
 #     ['t','m','a','m','m','a'],
@@ -98,29 +100,38 @@ table = []
 #     ['a','a','a','n','a','r'],
 #     ]
 
-table = [
-    ['a','c','a','m','c','e','a','l','e','s','r','f','a','l','g'],
-    ['c','n','a','l','s','m','a','t','r','i','m','o','n','i','o'],
-    ['g','g','v','d','u','a','t','e','i','e','a','c','n','e','a'],
-    ['f','m','m','s','r','r','o','s','s','r','n','f','i','k','n'],
-    ['b','a','i','s','d','i','r','t','e','t','n','i','s','m','i'],
-    ['a','c','n','v','y','t','i','i','l','m','o','a','l','d','s'],
-    ['a','n','v','g','a','o','s','m','e','s','t','o','l','o','v'],
-    ['m','f','i','e','t','t','a','o','a','s','t','d','m','g','i'],
-    ['g','c','t','m','s','r','o','n','v','k','e','s','e','e','n'],
-    ['l','d','a','l','e','e','m','e','o','c','a','r','l','m','o'],
-    ['a','n','t','e','f','i','d','a','n','z','a','t','o','a','s'],
-    ['s','o','i','b','i','d','f','i','g','e','w','i','l','g','e'],
-    ['q','e','m','m','o','g','l','i','e','r','u','b','e','d','c'],
-    ['a','a','d','e','d','i','l','e','f','e','s','s','v','e','u'],
-    ['c','r','i','t','d','a','e','s','d','s','i','c','d','g','l'],
-    ]
+table = []
+with open('Table.txt', 'r', encoding='utf-8') as f:
+    for line in f:
+        row = []
+        for char in line:
+            if char!='\n': row.append(char)
+        table.append(row)
+
+#   TABLE EXAMPLE 2
+# table = [
+#     ['a','c','a','m','c','e','a','l','e','s','r','f','a','l','g'],
+#     ['c','n','a','l','s','m','a','t','r','i','m','o','n','i','o'],
+#     ['g','g','v','d','u','a','t','e','i','e','a','c','n','e','a'],
+#     ['f','m','m','s','r','r','o','s','s','r','n','f','i','k','n'],
+#     ['b','a','i','s','d','i','r','t','e','t','n','i','s','m','i'],
+#     ['a','c','n','v','y','t','i','i','l','m','o','a','l','d','s'],
+#     ['a','n','v','g','a','o','s','m','e','s','t','o','l','o','v'],
+#     ['m','f','i','e','t','t','a','o','a','s','t','d','m','g','i'],
+#     ['g','c','t','m','s','r','o','n','v','k','e','s','e','e','n'],
+#     ['l','d','a','l','e','e','m','e','o','c','a','r','l','m','o'],
+#     ['a','n','t','e','f','i','d','a','n','z','a','t','o','a','s'],
+#     ['s','o','i','b','i','d','f','i','g','e','w','i','l','g','e'],
+#     ['q','e','m','m','o','g','l','i','e','r','u','b','e','d','c'],
+#     ['a','a','d','e','d','i','l','e','f','e','s','s','v','e','u'],
+#     ['c','r','i','t','d','a','e','s','d','s','i','c','d','g','l'],
+#     ]
+#   ALCUNE DI QUESTE NON CI SONO
 # VINO
 # MATRIMONIO
 # TESTIMONE
 # MESTOLO
 # LUCE
-# MONETE
 # MARITO
 # ANNI
 # VELO
@@ -131,7 +142,8 @@ table = [
 
 while True:
 
-    toFind = input('Che parola vuoi trovare?')
+    toFind = input('Che parola vuoi trovare? ')
+    toFind = toFind.lower()
     if toFind == '': break
     # toFind = 'ab'
 
